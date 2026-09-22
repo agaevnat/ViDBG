@@ -1,0 +1,9 @@
+<idea-plugin>
+    <id>org.vidbg</id>
+    <name>ViDBG</name>
+    <vendor>ViDBG</vendor>
+    <description>Interactive visual overview of the debugger's program state.</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+</idea-plugin>
