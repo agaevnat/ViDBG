@@ -9,10 +9,7 @@ import com.intellij.ui.content.ContentFactory
 class ViDbgToolWindowFactory : ToolWindowFactory {
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         val panel = ViDbgPanel()
-        val state = project.service<ViDbgState>()
-        state.onScenesChanged = panel::renderScenes
-        state.onVariablesChanged = panel::renderVariables
-        panel.bindSceneSelection { index -> state.selectScene(index) }
+        project.service<ViDbgState>().onVariablesChanged = panel::renderVariables
 
         val content = ContentFactory.getInstance().createContent(panel, "", false)
         toolWindow.contentManager.addContent(content)
