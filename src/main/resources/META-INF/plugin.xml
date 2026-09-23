@@ -6,4 +6,21 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.java</depends>
+
+    <extensionPoints>
+        <extensionPoint qualifiedName="org.vidbg.valueEnricher" interface="org.vidbg.enrich.ValueEnricher"/>
+    </extensionPoints>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="ViDBG" anchor="bottom" factoryClass="org.vidbg.ViDbgToolWindowFactory"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="org.vidbg">
+        <valueEnricher implementation="org.vidbg.enrich.jvm.JvmValueEnricher"/>
+    </extensions>
+
+    <projectListeners>
+        <listener class="org.vidbg.ViDbgSessionManagerListener"
+                   topic="com.intellij.xdebugger.XDebuggerManagerListener"/>
+    </projectListeners>
 </idea-plugin>
